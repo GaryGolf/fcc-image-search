@@ -1,0 +1,23 @@
+{
+  "name": "fcc-image-search",
+  "version": "1.0.0",
+  "description": ",-----.,--.                  ,--. ,---.   ,--.,------.  ,------.     '  .--./|  | ,---. ,--.,--. ,-|  || o   \\  |  ||  .-.  \\ |  .---'     |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \\  :|  `--,      '  '--'\\|  |' '-' ''  ''  '\\ `-' | .'  /   |  ||  '--'  /|  `---.      `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'     -----------------------------------------------------------------",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "garygolf",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaryGolf/fcc-image-search.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GaryGolf/fcc-image-search/issues"
+  },
+  "homepage": "https://github.com/GaryGolf/fcc-image-search#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
