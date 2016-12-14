@@ -1,5 +1,6 @@
 const fs = require('fs')
 const http = require('http')
+const path = require('path')
 const querystring = require('querystring')
 const request = require('request')
 const express = require('express')
@@ -9,10 +10,9 @@ const searchHistory = loadHistory() || []
 
 app.get('/api/imagesearch', (request, response) => {
 
-    response.type('json')
-    response.end(JSON.stringify(searchHistory))
+    response.set({ 'content-type': 'application/json; charset=utf-8' })
+    response.json(searchHistory)
 })
-
 
 app.get('/api/imagesearch/:string', (request, response) => {
     
@@ -32,15 +32,14 @@ app.get('/api/imagesearch/:string', (request, response) => {
             response.end('some error occured')
             return
         }
-        response.type('json')
-        response.end(JSON.stringify(json))
+        
+        response.set({ 'content-type': 'application/json; charset=utf-8' })
+        response.json(json)
         save(searchString)
     })
 })
 
-app.get('/', (request, response) => {
-    response.end('ok')
-})
+app.use(express.static(path.join(__dirname, 'public')))
 
 const port = process.env.PORT || 8080
 http.createServer(app).listen(port, () => {
@@ -95,9 +94,5 @@ function searchImage(searchString, offset, callback){
         }
     }
     
-    request(options, (error, response, body) => {
-        // console.log(response.statusCode)
-        callback(error, body)
-    })
-    
+    request(options, (error, response, body) =>  callback(error, body))
 }
